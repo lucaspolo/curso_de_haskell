@@ -18,3 +18,13 @@ comp_listas _ [] = False
 -- |Se o primeiro elemento igual, compara outros elementos chamando recursivamente
 comp_listas (x:xs) (y:ys) | (x == y) = comp_listas xs ys
                           | otherwise = False
+
+
+-- |Função genérica para inverter lista
+inverter_lista :: [t] -> [t]
+
+-- |Se lista igual a vazia, retorna vazia
+inverter_lista [] = []
+
+-- |Pega a cabeça e joga para o final
+inverter_lista (x:xs) = inverter_lista xs ++ [x]

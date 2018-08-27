@@ -166,3 +166,16 @@ comp_listas _ [] = False
 comp_listas (x:xs) (y:ys) | (x == y) = comp_listas xs ys
                           | otherwise = False
 ```
+
+Podemos criar uma função para inverter uma lista simplesmente retornando a cauda da lista com o valor da cabeça concatenado ao final:
+
+```haskell
+-- |Função genérica para inverter lista
+inverter_lista :: [t] -> [t]
+
+-- |Se lista igual a vazia, retorna vazia
+inverter_lista [] = []
+
+-- |Pega a cabeça e joga para o final
+inverter_lista (x:xs) = inverter_lista xs ++ [x]
+```
