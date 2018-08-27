@@ -126,3 +126,27 @@ Prelude> tail lista
 [2,3]
 ```
 
+Para adicionar um elemento a lista podemos utilizar o operador dois pontos (`:`):
+
+```haskell
+Prelude> 1:[2,3]
+[1,2,3]
+```
+
+Também funciona para lista vazia, permitindo assim criar a lista:
+
+```haskell
+Prelude> 1:2:3:[]
+[1,2,3]
+```
+
+Para determinarmos o tamanho da lista, podemos utilizar uma estratégia recursiva, que conta o tamanho de uma lista removendo seus elementos até não sobrar nenhum outro:
+
+```haskell
+-- |Função size que retorna o tamanho da lista
+-- |Quando vazia, tamanho zero
+size [] = 0
+
+-- |x é a cabeça da lista (de tamanho um), xs é o restante da lista
+size (x:xs) = 1 + size xs
+```
