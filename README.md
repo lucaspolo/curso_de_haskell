@@ -76,3 +76,29 @@ primeiro (x, _, _) = x
 segundo (_, y, _) = y
 terceiro (_, _, z) = z
 ```
+
+## Criação de tipos complexos
+
+É possível criar novos tipos usando a palavra `type`. Para nosso exemplo vamos definir um tipo pessoa, porém antes iremos também definir os tipos de seus atributos, como Nome, Idade e Linguage (predileta):
+
+```haskell
+-- |Definição dos tipos a serem usados por Pessoa
+type Nome = String
+type Idade = Int
+type Linguagem = String
+
+-- |Definição do Tipo pessoa
+type Pessoa = (Nome, Idade, Linguagem)
+
+-- |Definição de uma variável pessoa
+pessoa :: Pessoa
+
+-- |Criação da variável
+pessoa = ("Lucas", 28, "Python")
+
+-- |Função para retornar o nome
+my_fst :: Pessoa -> Nome
+my_fst (n, _, _) = n
+```
+
+Também aproveitamos e criamos uma função que retorna o nome, utilizando novamente pattern matching.
