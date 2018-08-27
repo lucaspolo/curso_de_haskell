@@ -179,3 +179,39 @@ inverter_lista [] = []
 -- |Pega a cabeça e joga para o final
 inverter_lista (x:xs) = inverter_lista xs ++ [x]
 ```
+
+Para verificarmos se um elemento pertence a uma lista podemos utilizar a seguinte abordagem:
+
+```haskell
+-- |Função para encontrar elemento em lista
+pertence :: [Int] -> Int -> Bool
+
+-- |Caso a lista esteja vazia, já percorreu ela toda, retorna False
+pertence [] _ = False
+
+-- |Itera recursivamente na lista, caso encontre, retorna True
+pertence (x:xs) elem | (x == elem) = True
+                     | otherwise = pertence xs elem
+```
+
+De maneira similar, podemos buscar seu maior elemento:
+
+```haskell
+-- |Função para buscar o maior elemento de uma lista
+maior :: [Int] -> Int
+-- |Caso a lista tenha um elemento, o maior elemento é o próprio
+maior [x] = x
+-- |Compara com a lista
+maior (x:xs) | (x > maior xs) = x
+             | otherwise = maior xs
+```
+
+E saber se todos os seus elementos são pares:
+
+```haskell
+-- |Função para verifica se todos os elementos são pares
+todos_pares :: [Int] -> Bool
+todos_pares [] = True
+todos_pares (x:xs) | (mod x 2 == 1) = False
+                   | otherwise = todos_pares xs
+```
