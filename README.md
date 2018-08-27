@@ -102,3 +102,27 @@ my_fst (n, _, _) = n
 ```
 
 Também aproveitamos e criamos uma função que retorna o nome, utilizando novamente pattern matching.
+
+
+## Listas
+
+Listas em Haskell são criadas através de colchetes (`[]`). Seus elementos vão entre estes colchetes e são separados por virgulas:
+
+```haskell
+-- |Lista vazia
+[]
+
+-- |Lista com elementos
+[1,2,3]
+```
+
+O primeiro elemento é a "cabeça" da lista e cada elementa aponta para seu elemento posterior. Para retornar o primeiro elemento temos a função `head` e para retornar o restante temos `tail`:
+
+```haskell
+Prelude> lista = [1,2,3]
+Prelude> head lista
+1
+Prelude> tail lista
+[2,3]
+```
+
