@@ -215,3 +215,49 @@ todos_pares [] = True
 todos_pares (x:xs) | (mod x 2 == 1) = False
                    | otherwise = todos_pares xs
 ```
+
+### Compreensão de listas
+
+Haskell permite a compreensão de listas, isto é, podemos gerar listar definindo as regras para a lista. Uma lista simples é: 
+
+```haskell
+Prelude> [x | x <- [1,2,3]]
+[1,2,3]
+```
+
+Também podemos operar este `x` antes de incluí-lo na lista:
+
+```haskell
+Prelude> [x * x| x <- [1,2,3]]
+[1,4,9]
+```
+
+Para gerar os números como sequência podemos usar a seguinte notação:
+
+```haskell
+Prelude> [1 .. 10]
+[1,2,3,4,5,6,7,8,9,10]
+Prelude> [ x * x | x <- [1 .. 10] ]
+[1,4,9,16,25,36,49,64,81,100]
+```
+
+Também é possível adicionar expressões para filtrar os elementos desta lista:
+
+```haskell
+Prelude> [ x * x | x <- [1 .. 10], mod x 2 == 0 ]
+[4,16,36,64,100]
+```
+
+Pode-se acumular condições:
+
+```haskell
+Prelude> [ x * x | x <- [1 .. 10], mod x 2 == 0, x > 5 ]
+[4,16,36,64,100]
+```
+
+Podemos também gerar tuplas de dados, como no exemplo abaixo onde será gerado o produto dos conjuntos:
+
+```haskell
+Prelude> [(x,y) | x <- [1..3], y <- [6..9]]
+[(1,6),(1,7),(1,8),(1,9),(2,6),(2,7),(2,8),(2,9),(3,6),(3,7),(3,8),(3,9)]
+```
