@@ -261,3 +261,12 @@ Podemos também gerar tuplas de dados, como no exemplo abaixo onde será gerado 
 Prelude> [(x,y) | x <- [1..3], y <- [6..9]]
 [(1,6),(1,7),(1,8),(1,9),(2,6),(2,7),(2,8),(2,9),(3,6),(3,7),(3,8),(3,9)]
 ```
+
+### Função Zip
+
+A função zip recebe duas listas e as combina em uma nova lista. 
+
+```haskell
+Prelude> zip [1,2,3] ['a', 'b', 'c']
+[(1,'a'),(2,'b'),(3,'c')]
+```
