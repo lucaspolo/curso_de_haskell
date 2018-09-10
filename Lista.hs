@@ -45,7 +45,30 @@ maior [x] = x
 maior (x:xs) | (x > maior xs) = x
              | otherwise = maior xs
 
+-- |Função para verifica se todos os elementos são pares
 todos_pares :: [Int] -> Bool
 todos_pares [] = True
 todos_pares (x:xs) | (mod x 2 == 1) = False
                    | otherwise = todos_pares xs
+
+-- |Função para retornar menor elemento da lista
+get_menor :: [Int] -> Int
+get_menor [x] = x
+get_menor (x:xs) | (x < get_menor xs) = x
+                 | otherwise = get_menor xs
+
+-- |Função para remover o menor elemento de uma lista
+remove_menor :: [Int] -> [Int]
+remove_menor [] = []
+remove_menor (x:xs) | (x == (get_menor (x:xs))) = xs
+                    | otherwise = (x:remove_menor xs)
+
+-- |Função para auxiliar na ordenação, pois irá acumular a lista
+aux_ordena :: [Int] -> [Int] -> [Int]
+aux_ordena lista_ordenada [] = lista_ordenada
+aux_ordena lista_ordenada (x:xs) = aux_ordena (lista_ordenada++[get_menor (x:xs)]) (remove_menor (x:xs))
+
+-- |Função para ordenar uma lista
+ordena :: [Int] -> [Int]
+ordena [x] = [x]
+ordena lista = aux_ordena [] lista

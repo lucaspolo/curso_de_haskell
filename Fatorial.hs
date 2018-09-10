@@ -1,3 +1,4 @@
-fatorial :: (Integral a) => a -> a
-fatorial 0 = 1
-fatorial n = n * fatorial ( n - 1 )
+factorial x =
+    tailFact x 1
+    where tailFact 0 a = a
+          tailFact n a = tailFact (n - 1) (n * a)
