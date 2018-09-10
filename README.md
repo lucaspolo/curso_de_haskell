@@ -270,3 +270,31 @@ A função zip recebe duas listas e as combina em uma nova lista.
 Prelude> zip [1,2,3] ['a', 'b', 'c']
 [(1,'a'),(2,'b'),(3,'c')]
 ```
+
+### Ordenando uma lista
+
+Para ordenarmos uma lista, podemos utilizar os métodos abaixo, onde primeiro buscamos o menor elemento, removemos ele, inserimos em uma nova lista e repetimos o processo com a lista que sobrou:
+
+```haskell
+-- |Função para retornar menor elemento da lista
+get_menor :: [Int] -> Int
+get_menor [x] = x
+get_menor (x:xs) | (x < get_menor xs) = x
+                 | otherwise = get_menor xs
+
+-- |Função para remover o menor elemento de uma lista
+remove_menor :: [Int] -> [Int]
+remove_menor [] = []
+remove_menor (x:xs) | (x == (get_menor (x:xs))) = xs
+                    | otherwise = (x:remove_menor xs)
+
+-- |Função para auxiliar na ordenação, pois irá acumular a lista
+aux_ordena :: [Int] -> [Int] -> [Int]
+aux_ordena lista_ordenada [] = lista_ordenada
+aux_ordena lista_ordenada (x:xs) = aux_ordena (lista_ordenada++[get_menor (x:xs)]) (remove_menor (x:xs))
+
+-- |Função para ordenar uma lista
+ordena :: [Int] -> [Int]
+ordena [x] = [x]
+ordena lista = aux_ordena [] lista
+```
