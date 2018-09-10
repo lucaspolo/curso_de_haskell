@@ -298,3 +298,12 @@ ordena :: [Int] -> [Int]
 ordena [x] = [x]
 ordena lista = aux_ordena [] lista
 ```
+
+Para inverter uma lista basta colocarmos a cabeça da lista ao final da cauda recursivamente:
+
+```haskell
+-- |Função para inverter uma lista
+inverte :: [Int] -> [Int]
+inverte [] = []
+inverte (x:xs) = (inverte (xs))++[x]
+```

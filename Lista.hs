@@ -72,3 +72,8 @@ aux_ordena lista_ordenada (x:xs) = aux_ordena (lista_ordenada++[get_menor (x:xs)
 ordena :: [Int] -> [Int]
 ordena [x] = [x]
 ordena lista = aux_ordena [] lista
+
+-- |Função para inverter uma lista
+inverte :: [Int] -> [Int]
+inverte [] = []
+inverte (x:xs) = (inverte (xs))++[x]
