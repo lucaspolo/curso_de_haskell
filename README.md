@@ -307,3 +307,29 @@ inverte :: [Int] -> [Int]
 inverte [] = []
 inverte (x:xs) = (inverte (xs))++[x]
 ```
+
+## Entrada e saída
+
+Haskell tem diversas funções na prelude para entrada e saída de dados:
+
+```haskell
+-- |Para exibir caracteres
+*Main> show "haskell"
+"\"haskell\""
+*Main> show 42
+"42"
+```
+
+Para imprimir uma string:
+
+```haskell
+*Main> putStr "Ola mundo"
+Ola mundo*Main> putStr "Olá mundo"
+```
+
+Para ler um conteúdo e converter para numérico, pode-se usar a função `read`:
+
+```haskell
+Olá mundo*Main> read "10" + 10
+20
+```
