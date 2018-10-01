@@ -333,3 +333,57 @@ Para ler um conteúdo e converter para numérico, pode-se usar a função `read`
 Olá mundo*Main> read "10" + 10
 20
 ```
+
+## Operadores e funções 
+
+Haskell possui diversos operadores:
+
+```haskell
+Prelude> True && False
+False
+Prelude> True || False
+True
+Prelude> not True
+False
+Prelude> div 3 2
+1
+Prelude> mod 3 2
+1
+Prelude> abs (-20)
+20
+Prelude> 3 > 2
+True
+Prelude> 2 < 3
+True
+Prelude> 2 >= 1
+True
+Prelude> 2 /= 3 -- Diferente
+True
+```
+
+Para manipularmos caracteres podemos usar a biblioteca `Data.Char`:
+
+```haskell
+Prelude> import Data.Char
+Prelude Data.Char> ord 'a'
+97
+Prelude Data.Char> ord 'A'
+65
+Prelude Data.Char> chr 120
+'x'
+Prelude Data.Char> chr 110
+'n'
+Prelude Data.Char> chr 10
+'\n'
+```
+
+Esta [biblioteca](http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Char.html) possui diversas funções de caractere.
+
+Também existem funções matemáticas, como `exp` para calcular exponencial:
+
+```haskell
+Prelude> exp 2
+7.38905609893065
+```
+
+E diversas outras funções que podem ser vistas [aqui](http://hackage.haskell.org/package/ClassyPrelude-0.1/docs/Prelude-Math.html).
